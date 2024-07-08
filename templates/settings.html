@@ -1,0 +1,146 @@
+{% extends "preresults_layout.html" %}
+
+{% block body %}
+    <div class="settings-nav"><h1 class="logomobile"><a class="no-decoration" href="./">{{ lang_data.settings.all_settings }}</a></h1></div>
+    <form action="/save-settings" method="post">
+    <input type="hidden" name="past" value="{{ current_url }}"></input>
+    <div class="settings">
+    <div class="settings-row">
+        <span class="highlight"><p>{{ lang_data.settings.all_settings }}</p></span>
+    </div>
+        <div>
+        <div class="theme-settings">
+            <div class="themes-settings-menu">
+                <div><img class="view-image-search clickable" id="dark_blur" alt="Dark (Default)" src="/themepreview/preview1.webp"></div>
+                <div><img class="view-image-search clickable" id="dark_default" alt="Dark (no background)" src="/themepreview/preview2.webp"></div>
+                <div><img class="view-image-search clickable" id="light" alt="Light" src="/themepreview/preview3.webp"></div>
+            </div>
+        </div>
+        </div>
+        <div class="settings-row">
+            <p>{{ lang_data.settings.discover_themes }}</p>
+            <button id="discoverButton">{{ lang_data.settings.discover_themes_button }}</button>
+        </div>
+        <div class="settings-row">
+        <p>{{ lang_data.settings.preferred_language }}</p>
+        <select id="lang" name="lang">
+            <option value="" {% if settings.lang == '' %}selected{% endif %}>{{ lang_data.settings.any_language }}</option>
+            <option value="lang_en" {% if settings.lang == 'lang_en' %}selected{% endif %}>English</option>
+            <option value="lang_af" {% if settings.lang == 'lang_af' %}selected{% endif %}>Afrikaans</option>
+            <option value="lang_ar" {% if settings.lang == 'lang_ar' %}selected{% endif %}>العربية (Arabic)</option>
+            <option value="lang_hy" {% if settings.lang == 'lang_hy' %}selected{% endif %}>Հայերեն (Armenian)</option>
+            <option value="lang_be" {% if settings.lang == 'lang_be' %}selected{% endif %}>Беларуская (Belarusian)</option>
+            <option value="lang_bg" {% if settings.lang == 'lang_bg' %}selected{% endif %}>български (Bulgarian)</option>
+            <option value="lang_ca" {% if settings.lang == 'lang_ca' %}selected{% endif %}>Català (Catalan)</option>
+            <option value="lang_zh-CN" {% if settings.lang == 'lang_zh-CN' %}selected{% endif %}>中文 (简体) (Chinese Simplified)</option>
+            <option value="lang_zh-TW" {% if settings.lang == 'lang_zh-TW' %}selected{% endif %}>中文 (繁體) (Chinese Traditional)</option>
+            <option value="lang_hr" {% if settings.lang == 'lang_hr' %}selected{% endif %}>Hrvatski (Croatian)</option>
+            <option value="lang_cs" {% if settings.lang == 'lang_cs' %}selected{% endif %}>Čeština (Czech)</option>
+            <option value="lang_da" {% if settings.lang == 'lang_da' %}selected{% endif %}>Dansk (Danish)</option>
+            <option value="lang_nl" {% if settings.lang == 'lang_nl' %}selected{% endif %}>Nederlands (Dutch)</option>
+            <option value="lang_eo" {% if settings.lang == 'lang_eo' %}selected{% endif %}>Esperanto</option>
+            <option value="lang_et" {% if settings.lang == 'lang_et' %}selected{% endif %}>Eesti (Estonian)</option>
+            <option value="lang_tl" {% if settings.lang == 'lang_tl' %}selected{% endif %}>Filipino (Tagalog)</option>
+            <option value="lang_fi" {% if settings.lang == 'lang_fi' %}selected{% endif %}>Suomi (Finnish)</option>
+            <option value="lang_fr" {% if settings.lang == 'lang_fr' %}selected{% endif %}>Français (French)</option>
+            <option value="lang_de" {% if settings.lang == 'lang_de' %}selected{% endif %}>Deutsch (German)</option>
+            <option value="lang_el" {% if settings.lang == 'lang_el' %}selected{% endif %}>Ελληνικά (Greek)</option>
+            <option value="lang_iw" {% if settings.lang == 'lang_iw' %}selected{% endif %}>עברית (Hebrew)</option>
+            <option value="lang_hi" {% if settings.lang == 'lang_hi' %}selected{% endif %}>हिन्दी (Hindi)</option>
+            <option value="lang_hu" {% if settings.lang == 'lang_hu' %}selected{% endif %}>magyar (Hungarian)</option>
+            <option value="lang_is" {% if settings.lang == 'lang_is' %}selected{% endif %}>íslenska (Icelandic)</option>
+            <option value="lang_id" {% if settings.lang == 'lang_id' %}selected{% endif %}>Bahasa Indonesia (Indonesian)</option>
+            <option value="lang_it" {% if settings.lang == 'lang_it' %}selected{% endif %}>italiano (Italian)</option>
+            <option value="lang_ja" {% if settings.lang == 'lang_ja' %}selected{% endif %}>日本語 (Japanese)</option>
+            <option value="lang_ko" {% if settings.lang == 'lang_ko' %}selected{% endif %}>한국어 (Korean)</option>
+            <option value="lang_lv" {% if settings.lang == 'lang_lv' %}selected{% endif %}>latviešu (Latvian)</option>
+            <option value="lang_lt" {% if settings.lang == 'lang_lt' %}selected{% endif %}>lietuvių (Lithuanian)</option>
+            <option value="lang_no" {% if settings.lang == 'lang_no' %}selected{% endif %}>norsk (Norwegian)</option>
+            <option value="lang_fa" {% if settings.lang == 'lang_fa' %}selected{% endif %}>فارسی (Persian)</option>
+            <option value="lang_pl" {% if settings.lang == 'lang_pl' %}selected{% endif %}>polski (Polish)</option>
+            <option value="lang_pt" {% if settings.lang == 'lang_pt' %}selected{% endif %}>português (Portuguese)</option>
+            <option value="lang_ro" {% if settings.lang == 'lang_ro' %}selected{% endif %}>română (Romanian)</option>
+            <option value="lang_ru" {% if settings.lang == 'lang_ru' %}selected{% endif %}>русский (Russian)</option>
+            <option value="lang_sr" {% if settings.lang == 'lang_sr' %}selected{% endif %}>српски (Serbian)</option>
+            <option value="lang_sk" {% if settings.lang == 'lang_sk' %}selected{% endif %}>slovenčina (Slovak)</option>
+            <option value="lang_sl" {% if settings.lang == 'lang_sl' %}selected{% endif %}>slovenščina (Slovenian)</option>
+            <option value="lang_es" {% if settings.lang == 'lang_es' %}selected{% endif %}>español (Spanish)</option>
+            <option value="lang_sw" {% if settings.lang == 'lang_sw' %}selected{% endif %}>Kiswahili (Swahili)</option>
+            <option value="lang_sv" {% if settings.lang == 'lang_sv' %}selected{% endif %}>svenska (Swedish)</option>
+            <option value="lang_th" {% if settings.lang == 'lang_th' %}selected{% endif %}>ไทย (Thai)</option>
+            <option value="lang_tr" {% if settings.lang == 'lang_tr' %}selected{% endif %}>Türkçe (Turkish)</option>
+            <option value="lang_uk" {% if settings.lang == 'lang_uk' %}selected{% endif %}>українська (Ukrainian)</option>
+            <option value="lang_vi" {% if settings.lang == 'lang_vi' %}selected{% endif %}>Tiếng Việt (Vietnamese)</option>
+        </select>
+        </div>
+        <div class="settings-row">
+        <p>{{ lang_data.settings.preferredux_language }}</p>
+        <select id="ux_lang" name="ux_lang">
+            {% for language in UX_LANGUAGES %}
+              <option value="{{ language.lang_lower }}" {% if settings.ux_lang == language.lang_lower %}selected{% endif %}>{{ language.lang_fancy }}</option>
+            {% endfor %}
+        </select>
+        </div>
+    <div class="settings-row">
+        <p>{{ lang_data.settings.google_domain }}</p>
+        <select id="domain" name="domain">
+            <option value="/search?gl=us" {% if settings.domain == '/search?gl=us' %}selected{% endif %}>google.com</option>
+            <option value="/search?gl=fr" {% if settings.domain == '/search?gl=fr' %}selected{% endif %}>google.fr</option>
+            <option value="/search?gl=ca" {% if settings.domain == '/search?gl=ca' %}selected{% endif %}>google.ca</option>
+            <option value="/search?gl=uk" {% if settings.domain == '/search?gl=uk' %}selected{% endif %}>google.co.uk</option>
+            <option value="/search?gl=de" {% if settings.domain == '/search?gl=de' %}selected{% endif %}>google.de</option>
+            <option value="/search?gl=au" {% if settings.domain == '/search?gl=au' %}selected{% endif %}>google.com.au</option>
+            <option value="/search?gl=in" {% if settings.domain == '/search?gl=in' %}selected{% endif %}>google.co.in</option>
+            <option value="/search?gl=jp" {% if settings.domain == '/search?gl=jp' %}selected{% endif %}>google.co.jp</option>
+            <option value="/search?gl=kr" {% if settings.domain == '/search?gl=kr' %}selected{% endif %}>google.co.kr</option>
+            <option value="/search?gl=br" {% if settings.domain == '/search?gl=br' %}selected{% endif %}>google.com.br</option>
+        </select>
+    </div>        
+    <div class="settings-row">
+        <p>{{ lang_data.settings.safe_search }}</p>
+        <select id="safe" name="safe">
+            <option value="active" {% if settings.safe == 'active' %}selected{% endif %}>{{ lang_data.settings.safe_search }} {{ lang_data.settings.on }}</option>
+            <option value="" {% if settings.safe == '' %}selected{% endif %}>{{ lang_data.settings.safe_search }} {{ lang_data.settings.off }}</option>
+        </select>
+    </div>
+    <div class="settings-row">
+        <p>{{ lang_data.settings.open_links_new_tab }}</p>
+        <select id="open-new-tab" name="new_tab">
+            <option value="" {% if settings.new_tab == '' %}selected{% endif %}>New Tab Off</option>
+            <option value="active" {% if settings.new_tab == 'active' %}selected{% endif %}>New Tab On</option>
+        </select>
+    </div>
+    <div class="settings-row">
+        <p>Method</p>
+        <select id="open-new-tab" name="method">
+            <option value="GET" {% if settings.method == "GET" %}selected{% endif %}>GET</option>
+            <option value="POST" {% if settings.method == "POST" %}selected{% endif %}>POST</option>
+        </select>
+    </div>
+    <div class="settings-row">
+        <p>Autocomplete</p>
+        <select id="open-new-tab" name="ac">
+            <option value="google" {% if settings.ac == "google" %}selected{% endif %}>Google</option>
+            <option value="ddg" {% if settings.ac == "ddg" %}selected{% endif %}>DuckDuckGo</option>
+        </select>
+    </div>
+    <div class="settings-row">
+        <p>{{ lang_data.settings.disable_javascript }}</p>
+        <select id="javascript-setting" name="javascript">
+            <option value="enabled" {% if settings.javascript == 'enabled' %}selected{% endif %}>JavaScript Enabled</option>
+            <option value="" {% if settings.javascript == '' %}selected{% endif %}>JavaScript Disabled</option>
+        </select>
+    </div>
+    <div class="settings-row settings-row2">
+        <p class="font-hide">|</p>
+        <button class="save save-settings-page" type="submit">{{ lang_data.settings.save_settings }}</button>
+    </div>
+        {% if settings.javascript == "enabled" %}
+        <script defer src="/cookies-settings-version.js"></script>
+        <script defer src="/menu.js"></script>
+        <script defer src="/cookies.js"></script>
+        <script defer src="/uxlang.js"></script>
+        {% endif %}
+    </form>
+    </div>
+{% endblock %}

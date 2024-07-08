@@ -1,0 +1,63 @@
+{% extends "results_layout.html" %}
+
+{% block body %}
+    <p class="fetched fetched_dif fetched_img">{{ lang_data.results.results }} {{ fetched }} {{ lang_data.results.seconds }}</p>
+    {% if results %}
+    <div class="images images_viewer_hidden">
+        <div class="image_view image_hide">
+            <div class="image-view-close">
+                <button class="btn-nostyle"><div class="material-icons-round icon_visibility clickable image-before">navigate_before</div></button>
+                <button class="btn-nostyle"><div class="material-icons-round icon_visibility clickable image-next">navigate_next</div></button>
+                <button class="btn-nostyle"><div class="material-icons-round icon_visibility clickable image-close">close</div></button>
+            </div>
+            <a class="image-viewer-link clickable" href="">
+            <div class="view-image">
+                <img class="view-image-img" src=""/>
+            </div>
+            </a>
+            <p class="image-alt"></p>
+            <p>View source: <a class="image-source" href=""></a></p>
+            <p>View image via
+                <a class="full-size" href="">source - (full res)</a>
+                <a class="proxy-size" href="">proxy - (low res)</a>
+            </p>
+            <p>Engine: qwant image search</p>
+            <hr>
+            <p>Full-resolution image size: <span class="full-image-size"></span></p>
+        </div>
+        {% for result in results %}
+        <div class="image" width="{{ result.thumb_height }}">
+          <a class="clickable" {% if settings.new_tab == "active" %} target="_blank" {% endif %} href="{{ result.url }}">
+              <img 
+                class="open-image-viewer"
+                src="{{ result.thumb_proxy }}"
+                alt="{{ result.title }}"
+                data="{{ result.media }}"
+              />
+              <div class="resolution">{{ result.width }} × {{ result.height }}</div>
+              <div class="details">
+                <div class="img_title">{{ result.title }}</div>
+                <div class="img_source">{{ result.source }}</div>
+              </div>
+          </a>
+        </div>
+        {% endfor %}
+    </div>
+    <div class="prev-next prev-img">
+        <form method="{{ settings.method }}">
+          <input type="hidden" name="q" value="{{ q }}">
+          <input type="hidden" name="t" value="{{ type }}">
+          {% set p = request.args.get('p', 1)|int %}
+          {% if p >= 2 %}
+              <button name="p" value="{{ p - 1 }}">Previous</button>
+          {% endif %}
+          <button name="p" value="{{ p + 1 }}">Next</button>
+        </form>
+    </div>
+    {% else %}
+        <div class="no-results-found">
+            Your search '{{ q }}' came back with no results.<br>
+            Try rephrasing your search term and/or recorrect any spelling mistakes.
+        </div>
+    {% endif %}
+{% endblock %}
