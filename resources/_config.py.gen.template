@@ -1,0 +1,66 @@
+# Additional variables that cannot be configured with the generator.
+user_agents=[
+    "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36",
+    "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36",
+    "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:107.0) Gecko/20100101 Firefox/107.0",
+    "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/108.0.0.0 Safari/537.36",
+    "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:106.0) Gecko/20100101 Firefox/106.0",
+    "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/16.1 Safari/605.1.15",
+]
+VALID_IP_PROMPTS=[
+    "what is my ip",
+    "what is my ip address",
+    "what's my ip",
+    "whats my ip"
+]
+VALID_UA_PROMPTS=[
+    "what is my user agent",
+    "what is my useragent",
+    "whats my useragent",
+    "whats my user agent",
+    "what's my useragent",
+    "what's my user agent",
+]
+WHITELISTED_DOMAINS=[
+    "www.google.com",
+    "wikipedia.org",
+    PIPED_INSTANCE,
+    PIPED_INSTANCE_API,
+    PIPED_INSTANCE_PROXY,
+    "api.qwant.com",
+    TORRENTGALAXY_DOMAIN,
+    NYAA_DOMAIN,
+    API_BAY_DOMAIN,
+    RUTOR_DOMAIN,
+]
+TORRENT_TRACKERS = [
+    'http://nyaa.tracker.wf:7777/announce',
+    'udp://open.stealth.si:80/announce',
+    'udp://tracker.opentrackr.org:1337/announce',
+    'udp://exodus.desync.com:6969/announce',
+    'udp://tracker.torrent.eu.org:451/announce'
+]
+COOKIE_AGE=2147483647
+UX_LANGUAGES=[
+    {'lang_lower': 'english', 'lang_fancy': 'English'},
+    {'lang_lower': 'danish', 'lang_fancy': 'Danish (Dansk)'},
+    {'lang_lower': 'dutch', 'lang_fancy': 'Dutch (Nederlands)'},
+    {'lang_lower': 'french', 'lang_fancy': 'French (Français)'},
+    {'lang_lower': 'french_canadian', 'lang_fancy': 'French Canadian (Français canadien)'},
+    {'lang_lower': 'german', 'lang_fancy': 'German (Deutsch)'},
+    {'lang_lower': 'greek', 'lang_fancy': 'Greek (Ελληνικά)'},
+    {'lang_lower': 'italian', 'lang_fancy': 'Italian (Italiano)'},
+    {'lang_lower': 'japanese', 'lang_fancy': 'Japanese (日本語)'},
+    {'lang_lower': 'korean', 'lang_fancy': 'Korean (한국어)'},
+    {'lang_lower': 'mandarin_chinese', 'lang_fancy': 'Mandarin Chinese (普通话 or 中文)'},
+    {'lang_lower': 'norwegian', 'lang_fancy': 'Norwegian (Norsk)'},
+    {'lang_lower': 'polish', 'lang_fancy': 'Polish (Polski)'},
+    {'lang_lower': 'portuguese', 'lang_fancy': 'Portuguese (Português)'},
+    {'lang_lower': 'russian', 'lang_fancy': 'Russian (Русский)'},
+    {'lang_lower': 'spanish', 'lang_fancy': 'Spanish (Español)'},
+    {'lang_lower': 'swedish', 'lang_fancy': 'Swedish (Svenska)'},
+    {'lang_lower': 'turkish', 'lang_fancy': 'Turkish (Türkçe)'},
+    {'lang_lower': 'ukrainian', 'lang_fancy': 'Ukrainian (Українська)'},
+    {'lang_lower': 'romanian', 'lang_fancy': 'Romanian (Română)'},
+]
+DEFAULT_GOOGLE_DOMAIN='/search?gl=us'
